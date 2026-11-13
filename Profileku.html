@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fikri Ihsan Ali — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio pribadi Fikri Ihsan Ali — santri Daar El-Qolam."
+    />
+    <link rel="icon" type="image/x-icon" href="assets/fav-icon.jpg" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      /* ============ VARIABEL & RESET ============ */
+      :root {
+        --bg: #f6f9fc;
+        --surface: #ffffff;
+        --primary: #0284c7;
+        --primary-dark: #0369a1;
+        --accent: #38bdf8;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: rgba(2, 132, 199, 0.14);
+        --radius: 20px;
+        --shadow-sm: 0 6px 18px rgba(2, 132, 199, 0.08);
+        --shadow-md: 0 16px 40px rgba(2, 132, 199, 0.16);
+        --ease: cubic-bezier(0.22, 0.9, 0.3, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      section {
+        scroll-margin-top: 90px;
+      }
+
+      .gradient-text {
+        background: linear-gradient(120deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        animation: shine 6s linear infinite;
+      }
+
+      /* ============ TOMBOL ============ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.85rem 1.7rem;
+        border: none;
+        border-radius: 999px;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 10px 24px rgba(2, 132, 199, 0.32);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      }
+
+      .btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.55),
+          transparent
+        );
+        transform: skewX(-20deg);
+        transition: left 0.65s var(--ease);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 32px rgba(2, 132, 199, 0.42);
+      }
+
+      .btn:hover::after {
+        left: 130%;
+      }
+
+      .btn:active {
+        transform: translateY(-1px) scale(0.98);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        box-shadow: none;
+      }
+
+      .btn-ghost:hover {
+        background: rgba(2, 132, 199, 0.07);
+        box-shadow: 0 10px 24px rgba(2, 132, 199, 0.16);
+      }
+
+      /* ============ HEADER ============ */
+      header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+        padding: 1.15rem 6%;
+        background: rgba(246, 249, 252, 0.72);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        transition: padding 0.35s var(--ease), box-shadow 0.35s var(--ease),
+          background 0.35s var(--ease);
+        animation: slideDown 0.8s var(--ease) both;
+      }
+
+      header.scrolled {
+        padding: 0.65rem 6%;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 8px 28px rgba(2, 132, 199, 0.12);
+      }
+
+      .logo {
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        text-decoration: none;
+        color: var(--text);
+        white-space: nowrap;
+      }
+
+      .logo span {
+        color: var(--primary);
+      }
+
+      .nav_links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+      }
+
+      .nav_links a {
+        position: relative;
+        text-decoration: none;
+        font-size: 0.93rem;
+        font-weight: 500;
+        color: var(--muted);
+        padding-bottom: 4px;
+        transition: color 0.3s;
+      }
+
+      .nav_links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: width 0.35s var(--ease);
+      }
+
+      .nav_links a:hover,
+      .nav_links a.active {
+        color: var(--primary);
+      }
+
+      .nav_links a:hover::after,
+      .nav_links a.active::after {
+        width: 100%;
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(2, 132, 199, 0.08);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin: 0 auto;
+        border-radius: 2px;
+        background: var(--primary);
+        transition: transform 0.35s var(--ease), opacity 0.25s;
+      }
+
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* ============ HERO / ABOUT ============ */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 3rem;
+        padding: 9rem 6% 6rem;
+        overflow: hidden;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+        animation: floatBlob 14s ease-in-out infinite;
+      }
+
+      .blob-1 {
+        width: 380px;
+        height: 380px;
+        background: rgba(56, 189, 248, 0.4);
+        top: -80px;
+        right: -60px;
+      }
+
+      .blob-2 {
+        width: 300px;
+        height: 300px;
+        background: rgba(2, 132, 199, 0.28);
+        bottom: -60px;
+        left: -80px;
+        animation-delay: -5s;
+      }
+
+      .blob-3 {
+        width: 220px;
+        height: 220px;
+        background: rgba(125, 211, 252, 0.35);
+        top: 45%;
+        left: 45%;
+        animation-delay: -9s;
+      }
+
+      .about {
+        position: relative;
+        z-index: 1;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.45rem 1rem;
+        margin-bottom: 1.1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        background: rgba(2, 132, 199, 0.1);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+      }
+
+      .about h1 {
+        font-size: clamp(2rem, 4.4vw, 3.3rem);
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -1.2px;
+        margin-bottom: 0.9rem;
+      }
+
+      .type-line {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 600;
+        color: var(--primary-dark);
+        min-height: 1.9rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .caret {
+        display: inline-block;
+        width: 2px;
+        height: 1.05em;
+        margin-left: 3px;
+        vertical-align: -0.18em;
+        background: var(--primary);
+        animation: blink 1s steps(1) infinite;
+      }
+
+      .about-desc {
+        max-width: 46ch;
+        color: var(--muted);
+        font-size: 0.98rem;
+        margin-bottom: 1.9rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-bottom: 2rem;
+      }
+
+      .about-icons {
+        display: flex;
+        gap: 0.85rem;
+      }
+
+      .about-icons a {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+        color: var(--primary);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        text-decoration: none;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.35s var(--ease), color 0.3s, background 0.3s,
+          box-shadow 0.35s;
+      }
+
+      .about-icons a:hover {
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        transform: translateY(-5px) rotate(-6deg);
+        box-shadow: var(--shadow-md);
+      }
+
+      .img_about {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+      }
+
+      .img_about img {
+        width: min(100%, 360px);
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 32px;
+        border: 6px solid #fff;
+        box-shadow: 0 30px 60px rgba(2, 132, 199, 0.25);
+        animation: floatY 6s ease-in-out infinite;
+        transition: transform 0.5s var(--ease);
+      }
+
+      .img_about img:hover {
+        transform: scale(1.03) rotate(1deg);
+      }
+
+      .img_about::before {
+        content: "";
+        position: absolute;
+        width: min(100%, 400px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 2px dashed rgba(2, 132, 199, 0.35);
+        animation: spin 26s linear infinite;
+      }
+
+      /* ============ JUDUL SECTION ============ */
+      .section-title {
+        text-align: center;
+        margin-bottom: 3.2rem;
+      }
+
+      .section-title h2 {
+        font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: -0.8px;
+      }
+
+      .section-title p {
+        color: var(--muted);
+        font-size: 0.93rem;
+        margin-top: 0.35rem;
+      }
+
+      .divider {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0.7rem 0 0.2rem;
+      }
+
+      .divider i {
+        display: block;
+        height: 3px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      .divider i:nth-child(1),
+      .divider i:nth-child(3) {
+        width: 34px;
+        opacity: 0.5;
+      }
+
+      .divider i:nth-child(2) {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        animation-delay: 0.4s;
+      }
+
+      /* ============ EDUCATION TIMELINE ============ */
+      #education {
+        padding: 6rem 6%;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        padding-left: 2.4rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        border-radius: 2px;
+        background: linear-gradient(
+          180deg,
+          var(--primary),
+          var(--accent),
+          transparent
+        );
+      }
+
+      .tl-item {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: -2.4rem;
+        top: 26px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid var(--primary);
+        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.5);
+        animation: ring 2.4s ease-out infinite;
+      }
+
+      .tl-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.5rem 1.7rem;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+          border-color 0.4s;
+      }
+
+      .tl-card:hover {
+        transform: translateX(8px);
+        border-color: rgba(2, 132, 199, 0.4);
+        box-shadow: var(--shadow-md);
+      }
+
+      .tl-card h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .date-edu {
+        display: inline-block;
+        margin: 0.4rem 0 0.5rem;
+        padding: 0.18rem 0.8rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        background: rgba(2, 132, 199, 0.1);
+        border-radius: 999px;
+      }
+
+      .desc-edu {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      /* ============ SKILLS ============ */
+      #skill {
+        padding: 6rem 6%;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(2, 132, 199, 0.045),
+          transparent
+        );
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1.3rem;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        position: relative;
+        overflow: hidden;
+        padding: 1.7rem 1.1rem 1.4rem;
+        text-align: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+          border-color 0.4s;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(2, 132, 199, 0.09),
+          rgba(56, 189, 248, 0.02)
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(2, 132, 199, 0.38);
+        box-shadow: var(--shadow-md);
+      }
+
+      .skill-card:hover::before {
+        opacity: 1;
+      }
+
+      .skill-icon {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        margin: 0 auto 0.9rem;
+        font-size: 1.6rem;
+        color: var(--primary);
+        background: rgba(2, 132, 199, 0.09);
+        border-radius: 18px;
+        transition: transform 0.45s var(--ease), background 0.4s, color 0.4s;
+      }
+
+      .skill-card:hover .skill-icon {
+        transform: scale(1.12) rotate(-8deg);
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #fff;
+      }
+
+      .skill-card h4 {
+        position: relative;
+        font-size: 0.97rem;
+        font-weight: 600;
+      }
+
+      .level {
+        position: relative;
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: capitalize;
+        margin-bottom: 0.7rem;
+      }
+
+      .bar {
+        position: relative;
+        height: 6px;
+        border-radius: 99px;
+        background: #e6eef5;
+        overflow: hidden;
+      }
+
+      .bar span {
+        display: block;
+        width: 0;
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: width 1.3s var(--ease);
+      }
+
+      /* ============ ALAMAT ============ */
+      #alamat {
+        padding: 6rem 6%;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(2, 132, 199, 0.045),
+          transparent
+        );
+      }
+
+      .address-wrap {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .address-card {
+        position: relative;
+        overflow: hidden;
+        padding: 2.5rem 2rem 2.2rem;
+        text-align: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+          border-color 0.4s;
+      }
+
+      .address-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(2, 132, 199, 0.06),
+          rgba(56, 189, 248, 0.01)
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+        pointer-events: none;
+      }
+
+      .address-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(2, 132, 199, 0.35);
+        box-shadow: var(--shadow-md);
+      }
+
+      .address-card:hover::before {
+        opacity: 1;
+      }
+
+      .address-icon {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        margin: 0 auto 1.1rem;
+        font-size: 2rem;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 22px;
+        box-shadow: 0 14px 28px rgba(2, 132, 199, 0.35);
+        animation: floatY 5s ease-in-out infinite;
+      }
+
+      .address-card h3 {
+        position: relative;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.4px;
+      }
+
+      .address-sub {
+        position: relative;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 1.6rem;
+      }
+
+      .address-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1.8rem;
+        text-align: left;
+      }
+
+      .addr-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        padding: 0.75rem 0.9rem;
+        background: rgba(2, 132, 199, 0.05);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        transition: background 0.3s, border-color 0.3s,
+          transform 0.35s var(--ease);
+      }
+
+      .addr-item:hover {
+        background: rgba(2, 132, 199, 0.1);
+        border-color: rgba(2, 132, 199, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .addr-item > i {
+        flex-shrink: 0;
+        width: 18px;
+        margin-top: 3px;
+        font-size: 0.95rem;
+        color: var(--primary);
+        text-align: center;
+      }
+
+      .addr-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.35;
+      }
+
+      .addr-label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+
+      .addr-value {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .address-actions {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      /* ============ CONTACT ============ */
+      #contact {
+        padding: 6rem 6% 7rem;
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .contact-illustration {
+        display: grid;
+        place-items: center;
+      }
+
+      .contact-illustration img {
+        width: 100%;
+        max-width: 420px;
+        animation: floatY 7s ease-in-out infinite;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 0.35rem;
+        padding: 2rem;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .contact-form label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin-top: 0.7rem;
+        transition: color 0.3s;
+      }
+
+      .contact-form input,
+      .contact-form select {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font: inherit;
+        font-size: 0.92rem;
+        color: var(--text);
+        background: #f8fbfe;
+        border: 1.5px solid #e2ebf3;
+        border-radius: 12px;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+      }
+
+      .contact-form input:focus,
+      .contact-form select:focus {
+        background: #fff;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.13);
+      }
+
+      .contact-form input:focus + label,
+      .contact-form label:has(+ input:focus) {
+        color: var(--primary);
+      }
+
+      .btn-form {
+        margin-top: 1.4rem;
+      }
+
+      .btn-form input[type="submit"] {
+        width: 100%;
+        padding: 0.9rem;
+        font: inherit;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 10px 24px rgba(2, 132, 199, 0.32);
+        transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      }
+
+      .btn-form input[type="submit"]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 32px rgba(2, 132, 199, 0.42);
+      }
+
+      .form-msg {
+        margin-top: 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #16a34a;
+        opacity: 0;
+        transform: translateY(-6px);
+        transition: opacity 0.4s, transform 0.4s;
+      }
+
+      .form-msg.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ============ FOOTER ============ */
+      footer {
+        position: relative;
+        margin-top: 4rem;
+        padding: 0 6% 2.4rem;
+        text-align: center;
+        color: #e0f2fe;
+        background: linear-gradient(180deg, transparent 0%, #0b3a5b 18%);
+      }
+
+      footer .wave svg {
+        display: block;
+        width: 100%;
+      }
+
+      .foot-content {
+        background: #0b3a5b;
+        padding: 1rem 0 0;
+      }
+
+      .foot-content p {
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        margin: 1.2rem 0 1.8rem;
+      }
+
+      .social-icons a {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        color: #e0f2fe;
+        border: 1px solid rgba(224, 242, 254, 0.25);
+        border-radius: 14px;
+        text-decoration: none;
+        transition: transform 0.35s var(--ease), background 0.3s, color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #0b3a5b;
+        background: #e0f2fe;
+        transform: translateY(-5px);
+      }
+
+      .createby {
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(224, 242, 254, 0.15);
+        font-size: 0.8rem;
+      }
+
+      /* ============ BACK TO TOP ============ */
+      #toTop {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 90;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 10px 24px rgba(2, 132, 199, 0.4);
+        opacity: 0;
+        transform: translateY(20px) scale(0.85);
+        pointer-events: none;
+        transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+      }
+
+      #toTop.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      #toTop:hover {
+        transform: translateY(-4px) scale(1.06);
+      }
+
+      /* ============ LIVE INFO WIDGET (JAM, TANGGAL, PENGUNJUNG) ============ */
+      .live-info {
+        position: fixed;
+        left: 22px;
+        bottom: 22px;
+        z-index: 95;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        min-width: 200px;
+        padding: 1rem 1.15rem;
+        background: rgba(255, 255, 255, 0.93);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 16px 40px rgba(2, 132, 199, 0.18);
+        animation: liveSlideUp 0.8s var(--ease) 0.3s both;
+      }
+
+      .live-item {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      .live-item > i {
+        flex-shrink: 0;
+        width: 22px;
+        font-size: 1.1rem;
+        color: var(--primary);
+        text-align: center;
+      }
+
+      .live-day {
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--muted);
+        line-height: 1.3;
+        letter-spacing: 0.2px;
+      }
+
+      .live-time {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.5px;
+        line-height: 1.25;
+      }
+
+      .live-label {
+        font-size: 0.66rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        line-height: 1.3;
+      }
+
+      .live-visitors {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .live-visitors strong {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary);
+        font-variant-numeric: tabular-nums;
+        line-height: 1.2;
+      }
+
+      .live-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.65);
+        animation: livePulse 1.8s ease-out infinite;
+      }
+
+      @keyframes liveSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes livePulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.65);
+        }
+        70% {
+          box-shadow: 0 0 0 9px rgba(16, 185, 129, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        }
+      }
+
+      /* ============ ANIMASI SCROLL REVEAL ============ */
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(38px);
+        transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+        will-change: opacity, transform;
+      }
+
+      .js .reveal.left {
+        transform: translateX(-46px);
+      }
+
+      .js .reveal.right {
+        transform: translateX(46px);
+      }
+
+      .js .reveal.zoom {
+        transform: scale(0.9);
+      }
+
+      .js .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      .delay-1 {
+        transition-delay: 0.1s !important;
+      }
+      .delay-2 {
+        transition-delay: 0.2s !important;
+      }
+      .delay-3 {
+        transition-delay: 0.3s !important;
+      }
+      .delay-4 {
+        transition-delay: 0.4s !important;
+      }
+      .delay-5 {
+        transition-delay: 0.5s !important;
+      }
+
+      /* ============ KEYFRAMES ============ */
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floatY {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-16px);
+        }
+      }
+
+      @keyframes floatBlob {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -40px) scale(1.08);
+        }
+        66% {
+          transform: translate(-25px, 25px) scale(0.95);
+        }
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(0.7);
+          opacity: 0.6;
+        }
+      }
+
+      @keyframes ring {
+        0% {
+          box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(2, 132, 199, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+        }
+      }
+
+      /* ============ RESPONSIVE ============ */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 8rem;
+          gap: 2.4rem;
+        }
+
+        .img_about {
+          order: -1;
+        }
+
+        .about-desc {
+          margin-inline: auto;
+        }
+
+        .hero-actions,
+        .about-icons {
+          justify-content: center;
+        }
+
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-illustration {
+          order: -1;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .hamburger {
+          display: flex;
+        }
+
+        nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          padding: 0 6%;
+          max-height: 0;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.97);
+          backdrop-filter: blur(14px);
+          box-shadow: 0 16px 30px rgba(2, 132, 199, 0.12);
+          transition: max-height 0.45s var(--ease), padding 0.45s var(--ease);
+        }
+
+        header.nav-open nav {
+          max-height: 420px;
+          padding: 1rem 6% 1.4rem;
+        }
+
+        .nav_links {
+          flex-direction: column;
+          gap: 0.2rem;
+        }
+
+        .nav_links li {
+          opacity: 0;
+          transform: translateX(-14px);
+          transition: opacity 0.35s, transform 0.35s;
+        }
+
+        header.nav-open .nav_links li {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        header.nav-open .nav_links li:nth-child(1) {
+          transition-delay: 0.06s;
+        }
+        header.nav-open .nav_links li:nth-child(2) {
+          transition-delay: 0.12s;
+        }
+        header.nav-open .nav_links li:nth-child(3) {
+          transition-delay: 0.18s;
+        }
+        header.nav-open .nav_links li:nth-child(4) {
+          transition-delay: 0.24s;
+        }
+        header.nav-open .nav_links li:nth-child(5) {
+          transition-delay: 0.3s;
+        }
+
+        .nav_links a {
+          display: block;
+          padding: 0.65rem 0;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nav_btn {
+          display: none;
+        }
+        .contact-form {
+          padding: 1.4rem;
+        }
+        #education,
+        #skill,
+        #alamat,
+        #contact {
+          padding-block: 4.5rem;
+        }
+
+        .address-card {
+          padding: 1.7rem 1.3rem 1.6rem;
+        }
+        .address-grid {
+          gap: 0.55rem;
+        }
+        .addr-item {
+          padding: 0.6rem 0.7rem;
+        }
+
+        /* Live info widget — versi kompak */
+        .live-info {
+          left: 12px;
+          bottom: 12px;
+          min-width: 0;
+          padding: 0.7rem 0.9rem;
+          gap: 0.45rem;
+        }
+        .live-time {
+          font-size: 0.95rem;
+        }
+        .live-day {
+          font-size: 0.64rem;
+        }
+        .live-visitors strong {
+          font-size: 0.9rem;
+        }
+        .live-label {
+          font-size: 0.6rem;
+        }
+        .live-item > i {
+          font-size: 0.95rem;
+          width: 18px;
+        }
+        #toTop {
+          right: 12px;
+          bottom: 12px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .live-info {
+          min-width: 150px;
+          padding: 0.6rem 0.75rem;
+        }
+        .live-time {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Hormati preferensi pengguna */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+
+        .js .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header id="navbar">
+      <a href="#about" class="logo">My <span>Portfolio</span></a>
+
+      <nav id="nav">
+        <ul class="nav_links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skill" class="nav-link">Skills</a></li>
+          <li><a href="#alamat" class="nav-link">Alamat</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a
+        class="btn nav_btn"
+        target="_blank"
+        rel="noopener"
+        href="https://prp.daarelqolam.ac.id/"
+      >
+        <i class="fa fa-graduation-cap"></i> My prp
+      </a>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Buka menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <!-- ================= ABOUT / HERO ================= -->
+      <section id="about" class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
+        <div class="about">
+          <p class="badge reveal">✦ Assalamualaikum, nama saya Fikri</p>
+
+          <h1 class="reveal delay-1">
+            Saya santri <span class="gradient-text">Daar El-Qolam</span>
+          </h1>
+
+          <p class="type-line reveal delay-2">
+            <span id="typed"></span><span class="caret"></span>
+          </p>
+
+          <p class="about-desc reveal delay-3">
+            Berkomitmen untuk belajar dan berkembang, pantang menyerah oleh
+            tantangan, karena kupercaya ilmu adalah senjata dan pelindung di
+            dalam kelamnya dunia.
+          </p>
+
+          <div class="hero-actions reveal delay-4">
+            <a class="btn" href="mailto:muhaisim7@gmail.com">
+              <i class="fa fa-briefcase"></i> Hire me
+            </a>
+            <a class="btn btn-ghost" href="#skill">
+              Lihat Skills <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="about-icons reveal delay-5">
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fa fa-github"></i>
+            </a>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+            >
+              <i class="fa fa-facebook-square"></i>
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fa fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="img_about reveal right">
+          <!-- 🔧 Disarankan pindahkan foto ke folder assets/ agar mudah di-deploy -->
+          <img
+            src="C:\Users\Fikri Ihsan Ali\Downloads\Gemini_Generated_Image_cs1tivcs1tivcs1t.jpg"
+            alt="Foto Fikri Ihsan Ali"
+          />
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION ================= -->
+      <section id="education">
+        <div class="section-title reveal">
+          <h2>Education</h2>
+          <span class="divider"><i></i><i></i><i></i></span>
+          <p>History of Education</p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-card">
+              <h3>MA Daar El Qolam 4</h3>
+              <span class="date-edu">2026 — now</span>
+              <p class="desc-edu">Kelas 10 B</p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal delay-2">
+            <div class="tl-card">
+              <h3>MTs Daar El Qolam 4</h3>
+              <span class="date-edu">2023 — 2026</span>
+              <p class="desc-edu">Kelas 7 – 9</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skill">
+        <div class="section-title reveal">
+          <h2>Skills</h2>
+          <span class="divider"><i></i><i></i><i></i></span>
+          <p>Programming languages &amp; more</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal" data-level="65">
+            <div class="skill-icon"><i class="fa fa-code"></i></div>
+            <h4>HTML</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-1" data-level="65">
+            <div class="skill-icon"><i class="fa fa-futbol-o"></i></div>
+            <h4>Basketball</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-2" data-level="65">
+            <div class="skill-icon"><i class="fa fa-microphone"></i></div>
+            <h4>Public Speaking</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-3" data-level="40">
+            <div class="skill-icon"><i class="fa fa-book"></i></div>
+            <h4>JMQ</h4>
+            <p class="level">basic</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-4" data-level="65">
+            <div class="skill-icon"><i class="fa fa-star-o"></i></div>
+            <h4>JHQ</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-5" data-level="65">
+            <div class="skill-icon"><i class="fa fa-language"></i></div>
+            <h4>English</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal" data-level="65">
+            <div class="skill-icon"><i class="fa fa-calculator"></i></div>
+            <h4>Math</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-1" data-level="65">
+            <div class="skill-icon"><i class="fa fa-pencil"></i></div>
+            <h4>Nahwu</h4>
+            <p class="level">medium</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-2" data-level="40">
+            <div class="skill-icon"><i class="fa fa-database"></i></div>
+            <h4>phpMyAdmin</h4>
+            <p class="level">basic</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-3" data-level="40">
+            <div class="skill-icon"><i class="fa fa-github"></i></div>
+            <h4>GitHub</h4>
+            <p class="level">basic</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-4" data-level="40">
+            <div class="skill-icon"><i class="fa fa-paper-plane"></i></div>
+            <h4>Postman</h4>
+            <p class="level">basic</p>
+            <div class="bar"><span></span></div>
+          </article>
+
+          <article class="skill-card reveal delay-5" data-level="40">
+            <div class="skill-icon"><i class="fa fa-paint-brush"></i></div>
+            <h4>Figma</h4>
+            <p class="level">basic</p>
+            <div class="bar"><span></span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= ALAMAT ================= -->
+      <section id="alamat">
+        <div class="section-title reveal">
+          <h2>Alamat</h2>
+          <span class="divider"><i></i><i></i><i></i></span>
+          <p>Lokasi tempat tinggal</p>
+        </div>
+
+        <div class="address-wrap reveal zoom">
+          <div class="address-card">
+            <div class="address-icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+
+            <h3>Cikangkung Timur</h3>
+            <p class="address-sub">RT / RW 003 / 003</p>
+
+            <div class="address-grid">
+              <div class="addr-item">
+                <i class="fa fa-home"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Desa</span>
+                  <span class="addr-value">Rengasdengklok Utara</span>
+                </div>
+              </div>
+
+              <div class="addr-item">
+                <i class="fa fa-building-o"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Kecamatan</span>
+                  <span class="addr-value">Rengasdengklok</span>
+                </div>
+              </div>
+
+              <div class="addr-item">
+                <i class="fa fa-map-o"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Kabupaten</span>
+                  <span class="addr-value">Karawang</span>
+                </div>
+              </div>
+
+              <div class="addr-item">
+                <i class="fa fa-map-signs"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Provinsi</span>
+                  <span class="addr-value">Jawa Barat</span>
+                </div>
+              </div>
+
+              <div class="addr-item">
+                <i class="fa fa-globe"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Negara</span>
+                  <span class="addr-value">Indonesia</span>
+                </div>
+              </div>
+
+              <div class="addr-item">
+                <i class="fa fa-envelope"></i>
+                <div class="addr-text">
+                  <span class="addr-label">Kode Pos</span>
+                  <span class="addr-value">41352</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="address-actions">
+              <a
+                class="btn"
+                href="https://www.google.com/maps/search/?api=1&query=Cikangkung+Timur+RT+003+RW+003+Rengasdengklok+Utara+Karawang+Jawa+Barat"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa fa-map-marker"></i> Buka di Google Maps
+              </a>
+              <button class="btn btn-ghost" id="copyAddress" type="button">
+                <i class="fa fa-clipboard"></i> Salin Alamat
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact">
+        <div class="section-title reveal">
+          <h2>Contact</h2>
+          <span class="divider"><i></i><i></i><i></i></span>
+          <p>Contact me for more</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-illustration reveal left">
+            <img src="assets/img-form.svg" alt="Ilustrasi kontak" />
+          </div>
+
+          <form class="contact-form reveal right" id="contactForm" novalidate>
+            <label for="name">Fullname</label>
+            <input type="text" name="name" id="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required />
+
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" />
+
+            <label for="topic">Topic</label>
+            <select name="topic" id="topic">
+              <option value="information">Information</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Others</option>
+            </select>
+
+            <div class="btn-form">
+              <input type="submit" value="Submit" />
+            </div>
+
+            <p class="form-msg" id="formMsg">
+              ✓ Terima kasih! Pesanmu sudah terkirim.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="wave">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          aria-hidden="true"
+        >
+          <path
+            fill="#0b3a5b"
+            fill-opacity="1"
+            d="M0,128L48,117.3C96,107,192,85,288,85.3C384,85,480,107,576,101.3C672,96,768,64,864,69.3C960,75,1056,117,1152,117.3C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="foot-content">
+        <p>Interest with me?</p>
+        <p>Follow My Social Media</p>
+
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+          >
+            <i class="fa fa-facebook-square"></i>
+          </a>
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fa fa-instagram"></i>
+          </a>
+        </div>
+
+        <div class="createby">
+          <p>&copy; Muhammad Ismail, 2023. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="toTop" aria-label="Kembali ke atas">
+      <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- ================= LIVE INFO (JAM, TANGGAL, PENGUNJUNG) ================= -->
+    <aside class="live-info" aria-label="Informasi langsung">
+      <div class="live-item">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <div>
+          <div class="live-day" id="liveDay">Memuat…</div>
+          <div class="live-time" id="liveTime">--:--:--</div>
+        </div>
+      </div>
+      <div class="live-item">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        <div>
+          <div class="live-label">Pengunjung</div>
+          <div class="live-visitors">
+            <span class="live-dot" aria-hidden="true"></span>
+            <strong id="visitorCount">—</strong>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <script>
+      /* Tandai bahwa JS aktif */
+      document.documentElement.classList.add("js");
+
+      /* ============ 1. NAVBAR: shadow saat scroll ============ */
+      const navbar = document.getElementById("navbar");
+      const toTop = document.getElementById("toTop");
+
+      const onScroll = () => {
+        const y = window.scrollY;
+        navbar.classList.toggle("scrolled", y > 40);
+        toTop.classList.toggle("show", y > 500);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      /* ============ 2. MENU MOBILE ============ */
+      const hamburger = document.getElementById("hamburger");
+
+      hamburger.addEventListener("click", () => {
+        const open = navbar.classList.toggle("nav-open");
+        hamburger.classList.toggle("open", open);
+        hamburger.setAttribute("aria-expanded", open);
+      });
+
+      document.querySelectorAll(".nav_links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navbar.classList.remove("nav-open");
+          hamburger.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      /* ============ 3. SCROLL REVEAL ============ */
+      const revealEls = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+        );
+
+        revealEls.forEach((el) => revealObserver.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add("visible"));
+      }
+
+      /* ============ 4. ANIMASI PROGRESS BAR SKILL ============ */
+      const skillCards = document.querySelectorAll(".skill-card");
+
+      if ("IntersectionObserver" in window) {
+        const barObserver = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const card = entry.target;
+              const level = card.dataset.level || 50;
+              const bar = card.querySelector(".bar span");
+              setTimeout(() => {
+                bar.style.width = level + "%";
+              }, 250);
+              obs.unobserve(card);
+            });
+          },
+          { threshold: 0.4 }
+        );
+
+        skillCards.forEach((card) => barObserver.observe(card));
+      }
+
+      /* ============ 5. EFEK TYPING ============ */
+      (function typewriter() {
+        const phrases = [
+          "Santri Daar El-Qolam",
+          "Web Development Learner",
+          "Public Speaker",
+          "Basketball Player",
+        ];
+        const target = document.getElementById("typed");
+        if (!target) return;
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function tick() {
+          const word = phrases[phraseIndex];
+
+          if (!deleting) {
+            charIndex++;
+            target.textContent = word.slice(0, charIndex);
+            if (charIndex === word.length) {
+              deleting = true;
+              return setTimeout(tick, 1600);
+            }
+          } else {
+            charIndex--;
+            target.textContent = word.slice(0, charIndex);
+            if (charIndex === 0) {
+              deleting = false;
+              phraseIndex = (phraseIndex + 1) % phrases.length;
+              return setTimeout(tick, 320);
+            }
+          }
+
+          setTimeout(tick, deleting ? 42 : 95);
+        }
+
+        setTimeout(tick, 700);
+      })();
+
+      /* ============ 6. ACTIVE LINK SAAT SCROLL ============ */
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      if ("IntersectionObserver" in window) {
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              navLinks.forEach((link) => {
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === "#" + entry.target.id
+                );
+              });
+            });
+          },
+          { rootMargin: "-45% 0px -50% 0px" }
+        );
+
+        sections.forEach((section) => navObserver.observe(section));
+      }
+
+      /* ============ 7. FORM SUBMIT (DEMO) ============ */
+      const form = document.getElementById("contactForm");
+      const formMsg = document.getElementById("formMsg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+
+        if (!name.value.trim() || !email.value.trim()) {
+          formMsg.textContent = "⚠ Nama dan email wajib diisi.";
+          formMsg.style.color = "#dc2626";
+          formMsg.classList.add("show");
+          setTimeout(() => formMsg.classList.remove("show"), 2500);
+          return;
+        }
+
+        formMsg.textContent = "✓ Terima kasih! Pesanmu sudah terkirim.";
+        formMsg.style.color = "#16a34a";
+        formMsg.classList.add("show");
+        form.reset();
+
+        setTimeout(() => formMsg.classList.remove("show"), 3000);
+      });
+
+      /* ============ 8. JAM & TANGGAL LIVE ============ */
+      (function liveClock() {
+        const dayEl = document.getElementById("liveDay");
+        const timeEl = document.getElementById("liveTime");
+        if (!dayEl || !timeEl) return;
+
+        const days = [
+          "Minggu",
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+        ];
+        const months = [
+          "Januari",
+          "Februari",
+          "Maret",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Agustus",
+          "September",
+          "Oktober",
+          "November",
+          "Desember",
+        ];
+        const pad = (n) => String(n).padStart(2, "0");
+
+        function update() {
+          const now = new Date();
+          dayEl.textContent = `${days[now.getDay()]}, ${now.getDate()} ${
+            months[now.getMonth()]
+          } ${now.getFullYear()}`;
+          timeEl.textContent = `${pad(now.getHours())}:${pad(
+            now.getMinutes()
+          )}:${pad(now.getSeconds())}`;
+        }
+
+        update();
+        setInterval(update, 1000);
+      })();
+
+      /* ============ 9. PENGUNJUNG (VISITOR COUNTER) ============ */
+      (async function visitorCounter() {
+        const countEl = document.getElementById("visitorCount");
+        if (!countEl) return;
+
+        // 🔑 GANTI namespace/key dengan milikmu agar unik
+        const NAMESPACE = "fikri-ihsan-portfolio";
+        const KEY = "page-views";
+
+        try {
+          const res = await fetch(
+            `https://abacus.jasoncameron.dev/hit/${NAMESPACE}/${KEY}`,
+            { cache: "no-store" }
+          );
+          if (!res.ok) throw new Error("API error");
+          const data = await res.json();
+          const value = Number(data.value) || 0;
+          countEl.textContent = value.toLocaleString("id-ID");
+          try {
+            localStorage.setItem("portfolio_visits", String(value));
+          } catch (_) {}
+        } catch (err) {
+          let count = Number(localStorage.getItem("portfolio_visits")) || 0;
+          if (!sessionStorage.getItem("visited_session")) {
+            count += 1;
+            try {
+              localStorage.setItem("portfolio_visits", String(count));
+            } catch (_) {}
+            sessionStorage.setItem("visited_session", "1");
+          }
+          countEl.textContent = count.toLocaleString("id-ID");
+        }
+      })();
+
+      /* ============ 10. SALIN ALAMAT ============ */
+      (function copyAddress() {
+        const btn = document.getElementById("copyAddress");
+        if (!btn) return;
+
+        const fullAddress =
+          "Cikangkung Timur RT/RW 003/003, Desa Rengasdengklok Utara, " +
+          "Kecamatan Rengasdengklok, Kabupaten Karawang, " +
+          "Provinsi Jawa Barat, Indonesia, Kode Pos 41352";
+
+        const resetLabel = () => {
+          btn.innerHTML = '<i class="fa fa-clipboard"></i> Salin Alamat';
+        };
+
+        btn.addEventListener("click", async () => {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(fullAddress);
+            } else {
+              const ta = document.createElement("textarea");
+              ta.value = fullAddress;
+              ta.style.position = "fixed";
+              ta.style.opacity = "0";
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand("copy");
+              document.body.removeChild(ta);
+            }
+            btn.innerHTML = '<i class="fa fa-check"></i> Tersalin!';
+            setTimeout(resetLabel, 2000);
+          } catch (err) {
+            btn.innerHTML = '<i class="fa fa-times"></i> Gagal';
+            setTimeout(resetLabel, 2000);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
